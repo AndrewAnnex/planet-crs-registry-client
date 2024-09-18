@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "planet-crs-registry-client"
+version = "2.0.0"
+description = "A client library for accessing planet_crs_registry"
+authors = []
+readme = "README.md"
+packages = [
+    {include = "planet_crs_registry_client"},
+]
+include = ["CHANGELOG.md", "planet_crs_registry_client/py.typed"]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+httpx = ">=0.20.0,<0.28.0"
+attrs = ">=21.3.0"
+python-dateutil = "^2.8.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["F", "I", "UP"]
