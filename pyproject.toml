@@ -1,27 +1,41 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=62.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "planet-crs-registry-client"
-version = "2.0.0"
 description = "A client library for accessing planet_crs_registry"
-authors = []
-readme = "README.md"
-packages = [
-    {include = "planet_crs_registry_client"},
+requires-python = ">=3.10"
+dynamic = ["version", "readme"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: GIS",
 ]
+authors = [
+    {name = "Dr. Andrew Annex", email="ama6fy@virginia.edu"}
+]
+keywords = ["CRS", "planetary", "REST"]
+dependencies = [
+    "httpx>=0.20.0,<0.28.0",
+    "attrs>=21.3.0",
+    "python-dateutil>=2.8.0,<3.0.0"
+]
+
+[project.urls]
+Repository = "https://github.com/AndrewAnnex/planet-crs-registry-client.git"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
 include = ["CHANGELOG.md", "planet_crs_registry_client/py.typed"]
 
 
-[tool.poetry.dependencies]
-python = "^3.8"
-httpx = ">=0.20.0,<0.28.0"
-attrs = ">=21.3.0"
-python-dateutil = "^2.8.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.ruff]
-line-length = 120
-
-[tool.ruff.lint]
-select = ["F", "I", "UP"]
+[tool.setuptools.dynamic]
+version = {attr = "planetary_crs_registry_client.__version__"}
+readme = {file = "README.md"}
