@@ -6,8 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "planet-crs-registry-client"
 description = "A client library for accessing planet_crs_registry"
 requires-python = ">=3.9"
-dynamic = ["version", "readme"]
+dynamic = ["version"]
 license = {file = "LICENSE"}
+readme = "README.md"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3.10",
@@ -37,4 +38,3 @@ namespaces = false
 
 [tool.setuptools.dynamic]
 version = {attr = "planet_crs_registry_client.__version__"}
-readme = {file = "README.md"}
